@@ -1,0 +1,381 @@
+footer{
+ position: fixed;
+ right: 0;
+ bottom: 0px;
+ display: flex;
+ flex-direction: row;
+ background-color: #252525;
+ width: 160px;
+}
+
+.navitem.navlink:hover{
+  border-bottom: solid white 2px;
+}
+
+.about-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.about-text{
+  background-color: #fff;
+  /* position: fixed; */
+  top: auto;
+  bottom: auto;
+  /* left: 50%; */
+  display: inline-block;
+  max-width: 700px;
+
+  border-radius: 5%;
+}
+
+.about-text a{
+  color: black;
+  text-decoration: underline;
+}
+.about-text p{
+  padding: 5px;
+  margin: 15px;
+  color: black;
+}
+
+.join-page-container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+
+}
+.requirement-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  position: fixed;
+  top: 100px;
+  bottom: auto;
+  left: 0;
+  right: 0;
+}
+
+.requirement-text{
+  align-items: center;
+}
+
+.join-container {
+  width: auto;
+  height: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 350px;
+  max-height: 600px;
+  margin: 40px auto;
+  background-color: #d73f09;
+  border-radius: 10px;
+  position: fixed;
+  top: 300px;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  /* overflow: scroll; */
+}
+
+.join-header {
+  position: relative;
+  padding: 10px 20px;
+}
+
+.join-header h3 {
+  margin: 0;
+  font-size: 28px;
+}
+
+
+
+.join-body {
+  padding: 20px;
+}
+
+.join-input-element {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.join-input-element label {
+  font-weight: 600;
+  flex: 1 75px;
+  margin-right: 10px;
+  position: inline-block;
+}
+
+.join-input-element input,
+.join-input-element textarea {
+  flex: 6 200px;
+  padding: 8px;
+  font-size: auto;
+  border: 1px solid #aaa;
+  overflow: hidden;
+}
+
+.game_response {
+  font-size: 18px;
+  display:inline;
+}
+
+.join-input-element textarea {
+  min-height: 10px;
+  max-height: 15px;
+  resize: none;
+}
+
+.join-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 5px 10px 5px;
+}
+
+.join-footer button {
+  font-size: 15px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+  padding: 10px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+
+.join-footer .join-clear-button: {
+  font-size: 5px;
+
+}
+.join-footer .join-clear-button:hover {
+  background-color: #eee;
+  color: #333;
+  /* position: absolute; */
+  /* right: 10px; */
+  /* top: 5px; */
+
+}
+
+.join-footer .join-accept-button {
+  background-color: #fff;
+}
+
+.join-footer .join-accept-button:hover {
+  background-color: #eee;
+  color: #333;
+}
+
+.peopleContainer{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+h1.page-title{
+  text-align: ;
+  color: #696969;
+  display: block;
+}
+
+.teamcard{
+  height: 200px;
+  width: 400px;
+  flex: 2 32%;
+  margin: 5px;
+  border: solid white 2px;
+  padding 5px;
+  background-color: #a1a8b5;
+  flex: 32%;
+  max-width: 400px;
+  font-family: "Open+Sans", Helvetica, sans-serif;
+  font-size: 14px;
+  margin: 10px;
+  border: solid white 2px;
+  padding: 10px;
+  background-color: white;
+}
+
+.teamRoster {
+  margin: 5px 10%;
+  background-color: #fff;
+  border-radius: 5px;
+  border-width: 4px 0;
+  border-style: solid;
+  border-color: #333;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 12px 8px;
+  position: relative;
+}
+
+.teamRoster-playerList {
+    width: auto;
+    length:auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.teamRoster-player {
+    display: flex;
+    width: 100%;
+    padding: 0 24px 24px;
+}
+.teamRoster-teamstuff {
+  padding: 0 0 20px;
+  display: flex;
+}
+
+.teamRoster-infoWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-left: 8px;
+}
+.teamRoster-info {
+    width: calc(100% - 1px);
+    padding-bottom: 20px;
+
+}
+.PlayerHandle{
+  line-height: 1;
+}
+.PlayerHandle-playerwrapper{
+      font-size: 1rem;
+      line-height: 1;
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Open+Sans", Helvetica, sans-serif;
+  background-color: 	#C0C0C0;
+}
+h1{
+  text-align: center;
+  color: #d73f09;
+  display: block;
+}
+
+.navbar{
+  background-color: #d73f09;
+  height: 100px;
+  font-size: 19px;
+  font-weight: bold;
+  margin: 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navitem{
+  display: inline-block;
+  border-bottom: solid #d73f09 2px;
+}
+
+.navitem.navlink:hover{
+  border-bottom: solid white 2px;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+  padding: 12px 8px 12px 8px;
+}
+
+.logo img{
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: 0;
+  height: 80px;
+  width: 250px;
+  display: flex;
+}
+
+.peopleContainer{
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1.page-title{
+  text-align: center;
+  color: #d73f09;
+  display: block;
+}
+
+.peopleCard{
+  width: 300px;
+  font-family: "Open+Sans", Helvetica, sans-serif;
+  font-size: 14px;
+  margin: 10px;
+  border: solid white 2px;
+  padding: 10px;
+  background-color: white;
+}
+
+img.game-icon{
+  flex-shrink: 0;
+  max-height: 300px;
+  height: auto;
+}
+
+.game-card{
+  flex: 20%;
+  background-color: #fff;
+  padding: 10px;
+  justify-content: center;
+  display: flex;
+  margin: 5px;
+  overflow: hidden;
+  background-color: #252525;
+}
+
+.home-container{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.resetPageBtnContainer{
+  text-align: center;
+}
+
+.resetPageBtn{
+  background-color: white;
+  width: 200px;
+  height: 40px;
+  font-size: 24px;
+}
+
+.deletePlayerCard{
+  display: inline;
+  text-align: right;
+  height: 20px;
+}
+
+.player-info-line{
+  width: 250px;
+  display: inline-block;
+  margin: 5px;
+}
+
+button:hover{
+  background-color:  #d73f09;
+}
+
+.hidden{
+  display: none;
+}
