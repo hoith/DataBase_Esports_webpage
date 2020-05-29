@@ -6,4 +6,18 @@
   {{#each players}}
     {{>peopleCard}}
   {{/each}}
+  <table id = 'Games'>
+      <tr>
+          <th>Game_Name</th>
+          <th>Main_Team</th>
+          <th>Release_Date</th>
+      </tr>
+      {{#each data}}
+      <tr>
+          <td>{{this.Game_Name}}</td>
+          <td>{{this.Main_Team}}</td>
+          <td>{{this.Release_Date}}
+      </tr>
+      {{/each}}
+  </table>
 </main>

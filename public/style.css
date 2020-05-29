@@ -183,6 +183,7 @@ h1.page-title{
   text-align: ;
   color: #696969;
   display: block;
+
 }
 
 .teamcard{
@@ -261,12 +262,16 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Open+Sans", Helvetica, sans-serif;
-  background-color: 	#C0C0C0;
+  background-color: 	#252525;
+
 }
 h1{
   text-align: center;
   color: #d73f09;
   display: block;
+  /* background-color: #ffffff;
+  border: solid #ffffff;
+  width: inherit; */
 }
 
 .navbar{
@@ -347,6 +352,7 @@ img.game-icon{
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
+  justify-content: center;
 }
 
 .resetPageBtnContainer{
@@ -378,4 +384,14 @@ button:hover{
 
 .hidden{
   display: none;
+}
+#Games{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid #fff;
+  min-width: 30%;
+  max-width: 30%;
+  color: #fff;
 }

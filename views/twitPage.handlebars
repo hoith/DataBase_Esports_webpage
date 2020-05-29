@@ -1,0 +1,11 @@
+<body>
+  <main class="twit-container">
+  {{#each twitData}}
+  {{>twit}}
+  {{/each}}
+  </main>
+
+  {{#if displayAddTwit}}
+  {{>modal}}
+  {{/if}}
+</body>
