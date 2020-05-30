@@ -73,19 +73,17 @@ app.get('/index.html', function(req, res){
 
 
 app.get('/people', function(req, res){
-// var collection = db.collection('players');
-//collection.find({}).toArray(function (err, players) {
-var context = {};
-context.data = {};
-mysql.pool.query("SELECT Game_Name,Main_Team,Release_Date FROM Games",  function(err, rows, fields){
-    if(err){
-      next(err);
-      return;
-    }
-    context.data = rows;
-    res.render('home', context);
-});
-  res.status(200).render('people');
+  var context = {};
+  context.data = {};
+  mysql.pool.query("SELECT Game_Name,Main_Team,Release_Date FROM Games",  function(err, rows, fields){
+      if(err){
+        next(err);
+        return;
+      }
+      context.data = rows;
+      res.render('people', context);
+  });
+  // res.status(200).render('people');
 });
 
 app.get('/players/:team', function(req, res, next){
