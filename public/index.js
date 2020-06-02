@@ -158,3 +158,20 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+function showUpdate(){
+  var Backdrop = document.getElementById('container-backdrop');
+  var updateContainer = document.getElementById('update-container');
+  Backdrop.classList.remove('hidden');
+  updateContainer.classList.remove('hidden');
+}
+
+function HandleUpdateButton(){
+  showUpdate();
+  //Takes in the text from the inputs
+}
+
+var updateButton = document.querySelector('#update-button');
+updateButton.addEventListener('click', function(){
+  console.log("==update-button clicked");
+  HandleUpdateButton();
+});

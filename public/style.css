@@ -47,6 +47,12 @@ footer{
   justify-content: space-around;
 
 }
+.update-page-container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+
+}
 .requirement-container{
   display: flex;
   align-items: center;
@@ -81,6 +87,7 @@ footer{
   z-index: 1010;
   /* overflow: scroll; */
 }
+
 
 .join-header {
   position: relative;
@@ -392,6 +399,123 @@ button:hover{
   align-items: center;
   border: solid #fff;
   min-width: 30%;
-  max-width: 30%;
+  max-width: 100%;
   color: #fff;
+}
+.hidden{
+  display: none;
+}
+#update-container{
+  width: auto;
+  height: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 350px;
+  max-height: 600px;
+  margin: 40px auto;
+  background-color: #d73f09;
+  border-radius: 10px;
+  position: fixed;
+  top: 300px;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  /* overflow: scroll; */
+}
+.update-container.hidden{
+  visibility: hidden;
+}
+
+
+.update-header {
+  position: relative;
+  padding: 10px 20px;
+}
+
+.update-header h3 {
+  margin: 0;
+  font-size: 28px;
+}
+.update-body {
+  padding: 20px;
+}
+
+.update-input-element {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.update-input-element label {
+  font-weight: 600;
+  flex: 1 75px;
+  margin-right: 10px;
+  position: inline-block;
+}
+
+.update-input-element input,
+.update-input-element textarea {
+  flex: 6 200px;
+  padding: 8px;
+  font-size: auto;
+  border: 1px solid #aaa;
+  overflow: hidden;
+}
+
+.update-input-element textarea {
+  min-height: 10px;
+  max-height: 15px;
+  resize: none;
+}
+
+.update-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 5px 10px 5px;
+}
+
+.update-footer button {
+  font-size: 15px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+  padding: 10px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+
+.update-footer .update-cancel-button: {
+  font-size: 5px;
+
+}
+.update-footer .update-cancel-button:hover {
+  background-color: #eee;
+  color: #333;
+  /* position: absolute; */
+  /* right: 10px; */
+  /* top: 5px; */
+
+}
+
+.update-footer .update-accept-button {
+  background-color: #fff;
+}
+
+.update-footer .update-accept-button:hover {
+  background-color: #eee;
+  color: #333;
+}
+
+#container-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
 }

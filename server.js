@@ -168,6 +168,9 @@ app.get('*', function (req, res) {
 //  }
 //  console.log("Connected to mongo");
 //  db = client.db(mongoDBName);
+
+
+
 app.listen(port, function () {
     console.log("== Server listening on port", port);
   });

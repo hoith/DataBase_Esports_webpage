@@ -17,7 +17,51 @@
           <td>{{this.Game_Name}}</td>
           <td>{{this.Main_Team}}</td>
           <td>{{this.Release_Date}}
+          <button id="update-button" class="people-table-button">Update</button>
+          <button id="delete-button" class="people-table-button">Delete</button>
+
+
       </tr>
       {{/each}}
   </table>
+    <div id="container-backdrop" class="hidden"></div>
+  <div id="update-container" class ="hidden">
+    <div class="update-dialog">
+
+      <div class="update-header">
+        <h3>Update your information</h3>
+      </div>
+
+      <div class="update-body">
+        <div class="update-input-element">
+          <label for="update-name-input">Name:</label>
+          <textarea id="update-name-input"></textarea>
+        </div>
+          <div class="update-input-element">
+            <label for="update-email-input">Email:</label>
+            <textarea id="update-email-input"></textarea>
+          </div>
+        <div class="update-input-element">
+          <label for="update-year-input">Year:</label>
+          <textarea id="update-year-input"></textarea>
+        </div>
+        <div class="update-input-element">
+          <label for="update-game-input">Game:</label>
+          <div class="game_response"><input  type="checkbox" data-text="LoL" value="League of Legends" autocomplete="off"><label>LoL</label></div>
+          <div class="game_response"><input  type="checkbox" data-text="Overwatch" value="Overwatch" autocomplete="off"><label>Overwatch</label></div>
+          <div class="game_response"><input  type="checkbox" data-text="CS:GO" value="CS:GO" autocomplete="off"><label>CS:GO</label></div>
+          <div class="game_response"><input  type="checkbox" data-text="Rocket League" value="Rocket League" autocomplete="off"><label>Rocket League</label></div>
+        </div>
+        <div class="update-input-element">
+          <label for="update-username-input">Username:</label>
+          <textarea id="update-username-input"></textarea>
+        </div>
+        <h5> For Battle.net username add #</h5>
+      </div>
+
+      <div class="update-footer">
+        <button type="button" class="update-cancel-button">Cancel</button>
+        <button type="button" class="update-accept-button">Accept</button>
+      </div>
+
 </main>
