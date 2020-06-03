@@ -158,6 +158,7 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
 function showUpdate(){
   var Backdrop = document.getElementById('container-backdrop');
   var updateContainer = document.getElementById('update-container');
@@ -174,4 +175,22 @@ var updateButton = document.querySelector('#update-button');
 updateButton.addEventListener('click', function(){
   console.log("==update-button clicked");
   HandleUpdateButton();
+});
+
+//----------
+function showdelete(){
+  var Backdrop = document.getElementById('container-backdrop');
+  var deleteContainer = document.getElementById('delete-container');
+  Backdrop.classList.remove('hidden');
+  deleteContainer.classList.remove('hidden');
+}
+
+function HandleDeleteButton(){
+  showdelete();
+}
+
+var deleteButton = document.querySelector('#delete-button');
+deleteButton.addEventListener('click', function(){
+  console.log("==delete-button clicked");
+  HandleDeleteButton();
 });
