@@ -1,3 +1,5 @@
+// var express = require('express');
+// var router = express.Router();
 
 function clearRequest(){
   var checkboxes = document.getElementsByTagName('input');
@@ -15,12 +17,14 @@ function clearRequest(){
 }
 
 function addMember(){
+  console.log('addmember was properly called.')
   var name = document.getElementById('join-name-input').value.trim();
-  var email = document.getElementById('join-email-input').value.trim();
+  // var email = document.getElementById('join-email-input').value.trim();
+  var mainteam = document.getElementById('join-team-input').value.trim();
   var username = document.getElementById('join-username-input').value.trim();
   var year = document.getElementById('join-year-input').value.trim();
   var checkboxes = document.getElementsByTagName('input');
-  if(name && email && username && year && (checkboxes[0].checked || checkboxes[1].checked || checkboxes[2].checked || checkboxes[3].checked)){
+  if(name && mainteam && username && year && (checkboxes[0].checked || checkboxes[1].checked || checkboxes[2].checked || checkboxes[3].checked)){
     var count = 0;
     var trueCheckbox;
     var gameid;
@@ -45,16 +49,17 @@ function addMember(){
     } else {
       gameid = "csgo";
     }
+    console.log('testing the mysql post here')
     var requestBody = JSON.stringify({
       name: name,
       username: username,
       year: year,
-      email: email,
+      mainteam: mainteam,
       game: trueCheckbox,
       gameid: gameid,
-      playerId: name+year+email+trueCheckbox+username
+      playerId: name+year+mainteam+trueCheckbox+username
     });
-
+    console.log('past testing sql')
 
 
 

@@ -25,12 +25,12 @@
 
       <div class="join-body">
         <div class="join-input-element">
-          <label for="join-name-input">Name:</label>
+          <label for="join-name-input">Game_Name:</label>
           <textarea id="join-name-input"></textarea>
         </div>
           <div class="join-input-element">
-            <label for="join-email-input">Email:</label>
-            <textarea id="join-email-input"></textarea>
+            <label for="join-team-input">Main_Team:</label>
+            <textarea id="join-team-input"></textarea>
           </div>
         <div class="join-input-element">
           <label for="join-year-input">Year:</label>
@@ -52,9 +52,13 @@
 
       <div class="join-footer">
         <button type="button" class="join-clear-button">Clear</button>
-        <button type="button" class="join-accept-button">Accept</button>
+        <button type="button" class="join-accept-button" action=''>Accept</button>
       </div>
 
     </div>
   </div>
-</div>
+
+
+          <td>{{this.Game_Name}}</td>
+          <td>{{this.Main_Team}}</td>
+          <td>{{this.Release_Date}}

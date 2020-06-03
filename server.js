@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var mysql = require('./dbcon1.js');
 var app = express();
 var port = process.env.PORT || 7845;
-
+var router = express.Router();
 
 //var mongoHost = process.env.MONGO_HOST;
 //var mongoPort = process.env.MONGO_PORT || 27017;
@@ -17,6 +17,8 @@ var port = process.env.PORT || 7845;
 //var mongoDBName = process.env.MONGO_DB_NAME;
 
 //var mongoUrl = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}`;
+
+
 var db = null;
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -108,20 +110,59 @@ app.get('/players/:team', function(req, res, next){
 // });
 });
 
+// router.post('/', function(req, res){
+//   console.log('inside new routerpost')
+//   console.log(req.body.Main_Team)
+//   console.log(req.body)
+//   var mysql = req.app.get('mysql');
+//   var sql = "INSERT INTO Games (Game_Name, Main_Team, Release_Date) VALUES (?,?,?)";
+//   var inserts = [req.body.Game_Name, req.body.Main_Team, req.body.Release_Date];
+//   sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+//       if(error){
+//           console.log(JSON.stringify(error))
+//           res.write(JSON.stringify(error));
+//           res.end();
+//       }else{
+//           console.log('redirecting to people')
+//           res.redirect('/people');
+//       }
+//   });
+// });
 app.post('/join/addMember', function (req, res, next) {
-  if (req.body && req.body.name && req.body.username && req.body.email && req.body.year && req.body.game && req.body.gameid && req.body.playerId) {
+  if (req.body && req.body.name && req.body.username && req.body.mainteam && req.body.year && req.body.game && req.body.gameid && req.body.playerId) {
   //  var collection = db.collection('players');
     var player = {
       name: req.body.name,
       username: req.body.username,
-      email: req.body.email,
+      mainteam: req.body.mainteam,
       year: req.body.year,
       game: req.body.game,
       gameid: req.body.gameid,
       playerId: req.body.playerId
     };
+    console.log('inside new routerpost BEFORE CHANGE')
+    console.log(req.body.name)
+    console.log(req.body.mainteam)
+    console.log(req.body.username)
+    console.log(req.body)
+    console.log('all together')
     console.log(player);
-
+    // var Game_Name = req.body.name;
+    // var Main_Team = req.body.mainteam;
+    // var Release_Date = req.body.year;
+    // var mysql = req.app.get('mysql');
+    var sql = "INSERT INTO Games (Game_Name, Main_Team, Release_Date) VALUES (?,?,?)";
+    var inserts = [req.body.name, req.body.mainteam, req.body.year];
+    sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+      if(error){
+          console.log(JSON.stringify(error))
+          res.write(JSON.stringify(error));
+          res.end();
+      }else{
+          console.log('Insert Task completed!')
+          // res.redirect('/');
+      }
+    });
   }
 });
 
@@ -174,3 +215,64 @@ app.get('*', function (req, res) {
 app.listen(port, function () {
     console.log("== Server listening on port", port);
   });
+
+// let pool = mysql.createPool(config);
+
+
+/* Adds a person, redirects to the people page after adding */
+
+// router.post('/', function(req, res){
+//   console.log('inside new routerpost')
+//   console.log(req.body.Main_Team)
+//   console.log(req.body)
+//   var mysql = req.app.get('mysql');
+//   var sql = "INSERT INTO Games (Game_Name, Main_Team, Release_Date) VALUES (?,?,?)";
+//   var inserts = [req.body.Game_Name, req.body.Main_Team, req.body.Release_Date];
+//   sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+//       if(error){
+//           console.log(JSON.stringify(error))
+//           res.write(JSON.stringify(error));
+//           res.end();
+//       }else{
+//           console.log('redirecting to people')
+//           res.redirect('/people');
+//       }
+//   });
+// });
+
+// app.post('/', function (req, res, next) {
+//     let context = {};
+//     let PlayerToInsert = [];
+
+//     PlayerToInsert.push(req.body.name);
+//     PlayerToInsert.push(req.body.reps);
+//     PlayerToInsert.push(req.body.weight);
+//     PlayerToInsert.push(req.body.date);
+//     PlayerToInsert.push(req.body.unit);
+
+//     console.log("PlayerToInsert: " + PlayerToInsert);
+
+//     // Reformat incoming date string to accept assignment requirement formatting
+//     // and produce SQL date for Insert:
+//     let dateIndex = 3;
+//     let dateMoment = moment(PlayerToInsert[dateIndex], "MM-DD-YYYY");
+//     PlayerToInsert[dateIndex] = dateMoment.format("YYYY-MM-DD");
+
+//     pool.getConnection(function (err, connection) {
+//       // SELECT Game_Name,Main_Team,Release_Date FROM Games
+//         connection.query("INSERT INTO Games (Game_Name, Main_Team, Release_date) VALUES(?,?,?)"),
+//         // connection.query("INSERT INTO exercises (name, reps, weight, date, unit) VALUES (?, ?, ?, ?, ?)",
+//             PlayerToInsert,
+//             function (err, result) {
+//                 if (err) {
+//                     next(err);
+//                     return;
+//                 }
+
+//                 connection.release();
+//                 context.results = {id: result.insertId};
+//                 res.setHeader('Content-Type', 'application/json');
+//                 res.send(JSON.stringify(context.results));
+//             })
+//     });
+// });
