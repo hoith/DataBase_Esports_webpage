@@ -545,8 +545,7 @@ button:hover{
   height: auto;
   max-width: 600px;
   min-width: 350px;
-  min-height: 350px;
-  max-height: 600px;
+
   margin: 40px auto;
   background-color: #d73f09;
   border-radius: 10px;

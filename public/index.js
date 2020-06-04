@@ -26,12 +26,15 @@ function clearUpdateRequest(){
   var clearUsername = document.getElementById('update-username-input');
   var Backdrop = document.getElementById('container-backdrop');
   var updateContainer = document.getElementById('update-container');
+  var deleteContainer = document.getElementById('delete-container');
   clearName.value = '';
   clearEmail.value = '';
   clearYear.value = '';
   clearUsername.value = '';
   Backdrop.classList.add('hidden');
   updateContainer.classList.add('hidden');
+  deleteContainer.classList.add('hidden');
+
 }
 function addMember(){
   console.log('addmember was properly called.')
