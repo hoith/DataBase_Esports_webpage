@@ -196,11 +196,11 @@ function HandleUpdateButton(){
   //Takes in the text from the inputs
 }
 
-var updateButton = document.querySelector('#update-button');
-updateButton.addEventListener('click', function(){
-  console.log("==update-button clicked");
-  HandleUpdateButton();
-});
+// var updateButton = document.querySelector('#update-button');
+//   updateButton.addEventListener('click', function(){
+//   console.log("==update-button clicked");
+//   HandleUpdateButton();
+// });
 
 //----------
 function showdelete(){
@@ -214,8 +214,8 @@ function HandleDeleteButton(){
   showdelete();
 }
 
-var deleteButton = document.querySelector('#delete-button');
-deleteButton.addEventListener('click', function(){
-  console.log("==delete-button clicked");
-  HandleDeleteButton();
-});
+// var deleteButton = document.querySelector('#delete-button');
+//   deleteButton.addEventListener('click', function(){
+//   console.log("==delete-button clicked");
+//   HandleDeleteButton();
+// });
