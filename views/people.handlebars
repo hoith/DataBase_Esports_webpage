@@ -14,33 +14,31 @@
       </tr>
       {{#each data}}
       <tr>
-          <td>{{this.Game_Name}}</td>
+          <td >{{this.Game_Name}}</td>
           <td>{{this.Main_Team}}</td>
           <td>{{this.Release_Date}}
-          <button id="update-button" class="people-table-button">Update</button>
-          <button id="delete-button" class="people-table-button">Delete</button>
+          <button id="update-button" class="people-table-button" onclick="HandleUpdateButton(this.id)">Update</button>
+          <button id="delete-button" class="people-table-button" onclick="HandleDeleteButton(this.id)">Delete</button>
 
 
       </tr>
       {{/each}}
   </table>
+  <!-- Delete popup -->
     <div id="container-backdrop" class="hidden"></div>
-
     <div id="delete-container" class ="hidden">
       <div class="update-dialog">
-
         <div class="update-header">
-          <h3>Update your information</h3>
+          <h3>Are you sure you want to delete this person?</h3>
         </div>
-
-
         </div>
-
         <div class="update-footer">
           <button type="button" class="update-cancel-button">Cancel</button>
           <button type="button" class="update-accept-button">Accept</button>
         </div>
-</div>
+        </div>
+
+        <!-- Update Popup -->
   <div id="update-container" class ="hidden">
     <div class="update-dialog">
 
@@ -76,7 +74,7 @@
       </div>
 
       <div class="update-footer">
-        <button type="button" class="update-cancel-button">Cancel</button>
+        <button type="button" class="update-cancel-button" onclick="clearUpdateRequest(this.id)">Cancel</button>
         <button type="button" class="update-accept-button">Accept</button>
       </div>
 

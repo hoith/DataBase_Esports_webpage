@@ -15,7 +15,24 @@ function clearRequest(){
   clearYear.value = '';
   clearUsername.value = '';
 }
-
+function clearUpdateRequest(){
+  var checkboxes = document.getElementsByTagName('input');
+  for (var i = 0; i < checkboxes.length; i++){
+    checkboxes[i].checked = false;
+  }
+  var clearName = document.getElementById('update-name-input');
+  var clearEmail = document.getElementById('update-email-input');
+  var clearYear = document.getElementById('update-year-input');
+  var clearUsername = document.getElementById('update-username-input');
+  var Backdrop = document.getElementById('container-backdrop');
+  var updateContainer = document.getElementById('update-container');
+  clearName.value = '';
+  clearEmail.value = '';
+  clearYear.value = '';
+  clearUsername.value = '';
+  Backdrop.classList.add('hidden');
+  updateContainer.classList.add('hidden');
+}
 function addMember(){
   console.log('addmember was properly called.')
   var name = document.getElementById('join-name-input').value.trim();
