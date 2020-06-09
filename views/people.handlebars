@@ -1,42 +1,49 @@
-<p class="page-title">{{title}}</p>
 <!-- <div class="resetPageBtnContainer">
   <button class="resetPageBtn" type="button" name="resetPage">Reset Page</button>
 </div> -->
 <main class="peopleContainer">
+  <p class="page-title">{{title}}</p>
+  <div>
+    <button id="update-button" class="people-table-button" onclick="HandleUpdateButton(this.id)">Update</button>
+    <button id="delete-button" class="people-table-button" onclick="HandleDeleteButton(this.id)">Delete</button>
+  </div>
   {{#each players}}
     {{>peopleCard}}
   {{/each}}
-  <table id = 'Games'>
+  <div class="peopleTable">
+  <table id = 'Games' class="peopleTable">
       <tr>
           <th>Game_Name</th>
           <th>Main_Team</th>
           <th>Release_Date</th>
       </tr>
       {{#each data}}
-      <tr>
-          <td >{{this.Game_Name}}</td>
-          <td>{{this.Main_Team}}</td>
-          <td>{{this.Release_Date}}
-          <button id="update-button" class="people-table-button" onclick="HandleUpdateButton(this.id)">Update</button>
-          <button id="delete-button" class="people-table-button" onclick="HandleDeleteButton(this.id)">Delete</button>
-
-
+      <tr class="table-row">
+        <td class="table-object">{{this.Game_Name}}</td>
+        <td class="table-object">{{this.Main_Team}}</td>
+        <td class="table-object">{{this.Release_Date}}</td>
       </tr>
       {{/each}}
   </table>
+</div>
   <!-- Delete popup -->
     <div id="container-backdrop" class="hidden"></div>
     <div id="delete-container" class ="hidden">
       <div class="update-dialog">
         <div class="update-header">
-          <h3>Are you sure you want to delete this person?</h3>
+          <h3>Which game would you like to delete?</h3>
+          <div class="delete-input-element">
+            <label for="delete-name-input">Game_Name:</label>
+            <textarea id="delete-name-input"></textarea>
+          </div
         </div>
         </div>
         <div class="update-footer">
           <button type="button" class="update-cancel-button" onclick="clearUpdateRequest(this.id)">Cancel</button>
-          <button type="button" class="update-accept-button" onclick="clearUpdateRequest(this.id)">Accept</button>
+          <button type="button" class="update-accept-button" onclick="acceptDelete(this.id)">Accept</button>
         </div>
         </div>
+      </div>
 
         <!-- Update Popup -->
   <div id="update-container" class ="hidden">
@@ -48,11 +55,11 @@
 
       <div class="update-body">
         <div class="update-input-element">
-          <label for="update-name-input">Name:</label>
+          <label for="update-name-input">Game_Name:</label>
           <textarea id="update-name-input"></textarea>
         </div>
           <div class="update-input-element">
-            <label for="update-email-input">Email:</label>
+            <label for="update-email-input">Main_:</label>
             <textarea id="update-email-input"></textarea>
           </div>
         <div class="update-input-element">
@@ -67,10 +74,10 @@
           <div class="game_response"><input  type="checkbox" data-text="Rocket League" value="Rocket League" autocomplete="off"><label>Rocket League</label></div>
         </div>
         <div class="update-input-element">
-          <label for="update-username-input">Username:</label>
+          <label for="update-username-input">Discord iD:</label>
           <textarea id="update-username-input"></textarea>
         </div>
-        <h5> For Battle.net username add #</h5>
+        <h5> Make sure to include #number in Discord iD</h5>
       </div>
 
       <div class="update-footer">
