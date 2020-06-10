@@ -34,6 +34,8 @@ function clearUpdateRequest(){
   Backdrop.classList.add('hidden');
   updateContainer.classList.add('hidden');
   deleteContainer.classList.add('hidden');
+  var clearName2 = document.getElementById('delete-name-input');
+  clearName2.value = '';
 
 }
 function addMember(){
@@ -99,6 +101,89 @@ function addMember(){
       alert("One of the fields is missing");
   }
 }
+
+
+function acceptDelete(){
+  console.log('acceptDelete was properly called.')
+  var name = document.getElementById('delete-name-input').value.trim();
+  if(name){
+    console.log("Am i here ?")
+    var count = 0;
+    var trueCheckbox;
+    var gameid;
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/people/acceptDelete';
+    postRequest.open('POST', requestURL);
+    console.log('testing the mysql post here')
+    var requestBody = JSON.stringify({ name: name });
+    console.log('past testing sql')
+
+
+
+    postRequest.addEventListener('load', function (event) {
+      if (event.target.status === 200) {
+        console.log("Success");
+        clearRequest();
+      } else {
+        alert("Error storing photo: " + event.target.response);
+      }
+    });
+
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+    postRequest.send(requestBody);
+  } else {
+      alert("One of the fields is missing");
+  }
+  location.reload()
+}
+
+function acceptUpdate(){
+  console.log('acceptUpdate was properly called.')
+  var name = document.getElementById('delete-name-input').value.trim();
+  var mainteam = document.getElementById('join-team-input').value.trim();
+  var username = document.getElementById('join-username-input').value.trim();
+  var year = document.getElementById('join-year-input').value.trim();
+  if(name){
+    console.log("Am i here ?")
+    var count = 0;
+    var trueCheckbox;
+    var gameid;
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/people/acceptUpdate';
+    postRequest.open('POST', requestURL);
+    console.log('testing the mysql post here')
+    var requestBody = JSON.stringify({
+      name: name,
+      username: username,
+      year: year,
+      mainteam: mainteam,
+      game: trueCheckbox,
+      gameid: gameid,
+      playerId: name+year+mainteam+trueCheckbox+username
+    });
+    console.log('past testing sql')
+
+
+
+    postRequest.addEventListener('load', function (event) {
+      if (event.target.status === 200) {
+        console.log("Success");
+        clearRequest();
+      } else {
+        alert("Error storing photo: " + event.target.response);
+      }
+    });
+
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+    postRequest.send(requestBody);
+  } else {
+      alert("One of the fields is missing");
+  }
+  location.reload()
+}
+
+
+
 
 function removeOneCard(event){
   if(event.target.classList.contains('deletePlayerCardBtn')){
