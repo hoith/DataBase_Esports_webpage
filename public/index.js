@@ -213,7 +213,13 @@ function showdelete(){
 function HandleDeleteButton(){
   showdelete();
 }
-
+function acceptDelete(){
+  var Backdrop = document.getElementById('container-backdrop');
+  var deleteContainer = document.getElementById('delete-container');
+  Backdrop.classList.add('hidden');
+  deleteContainer.classList.add('hidden');
+  clearUpdateRequest();
+}
 // var deleteButton = document.querySelector('#delete-button');
 //   deleteButton.addEventListener('click', function(){
 //   console.log("==delete-button clicked");
