@@ -34,6 +34,8 @@ function clearUpdateRequest(){
   Backdrop.classList.add('hidden');
   updateContainer.classList.add('hidden');
   deleteContainer.classList.add('hidden');
+  var clearName2 = document.getElementById('delete-name-input');
+  clearName2.value = '';
 
 }
 function addMember(){
@@ -99,6 +101,111 @@ function addMember(){
       alert("One of the fields is missing");
   }
 }
+
+
+function acceptDelete(){
+  console.log('acceptDelete was properly called.')
+  var name = document.getElementById('delete-name-input').value.trim();
+  if(name){
+    console.log("Am i here ?")
+    var count = 0;
+    var trueCheckbox;
+    var gameid;
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/people/acceptDelete';
+    postRequest.open('POST', requestURL);
+    console.log('testing the mysql post here')
+    var requestBody = JSON.stringify({ name: name });
+    console.log('past testing sql')
+
+
+
+    postRequest.addEventListener('load', function (event) {
+      if (event.target.status === 200) {
+        console.log("Success");
+        clearRequest();
+      } else {
+        alert("Error storing photo: " + event.target.response);
+      }
+    });
+
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+    postRequest.send(requestBody);
+  } else {
+      alert("One of the fields is missing");
+  }
+  location.reload()
+}
+
+function acceptUpdate(){
+    console.log('AcceptUpdate was properly called.')
+  var name = document.getElementById('update-name-input').value.trim();
+  // var email = document.getElementById('join-email-input').value.trim();
+  console.log("Uh")
+  var mainteam = document.getElementById('update-email-input').value.trim();
+  console.log("Is this not working ??")
+  var username = document.getElementById('update-username-input').value.trim();
+  var year = document.getElementById('update-year-input').value.trim();
+  var checkboxes = document.getElementsByTagName('input');
+  if(name && mainteam && username && year && (checkboxes[0].checked || checkboxes[1].checked || checkboxes[2].checked || checkboxes[3].checked)){
+    var count = 0;
+    var trueCheckbox;
+    var gameid;
+    for (var i = 0; i < checkboxes.length; i++){
+      if(checkboxes[i].checked){
+        trueCheckbox = checkboxes[i].value
+        count++;
+      }
+    }
+    if(count>1){
+      alert("Check only one box!");
+    } else {
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/people/acceptUpdate';
+    postRequest.open('POST', requestURL);
+    if(trueCheckbox==="League of Legends"){
+      gameid = "league";
+    } else if(trueCheckbox==="Overwatch"){
+      gameid = "overwatch";
+    } else if(trueCheckbox==="Rocket League"){
+      gameid = "rocketleague";
+    } else {
+      gameid = "csgo";
+    }
+    console.log('testing the mysql post here')
+    var requestBody = JSON.stringify({
+      name: name,
+      username: username,
+      year: year,
+      mainteam: mainteam,
+      game: trueCheckbox,
+      gameid: gameid,
+      playerId: name+year+mainteam+trueCheckbox+username
+    });
+    console.log('past testing sql')
+
+
+
+    postRequest.addEventListener('load', function (event) {
+      if (event.target.status === 200) {
+        console.log("Success");
+        clearRequest();
+      } else {
+        alert("Error storing photo: " + event.target.response);
+      }
+    });
+
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+    postRequest.send(requestBody);
+  }
+  } else {
+      alert("One of the fields is missing");
+  }
+  location.reload()
+}
+
+
+
 
 function removeOneCard(event){
   if(event.target.classList.contains('deletePlayerCardBtn')){

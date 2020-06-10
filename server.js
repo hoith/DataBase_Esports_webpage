@@ -152,14 +152,94 @@ app.post('/join/addMember', function (req, res, next) {
     // var Release_Date = req.body.year;
     // var mysql = req.app.get('mysql');
     var sql = "INSERT INTO Games (Game_Name, Main_Team, Release_Date) VALUES (?,?,?)";
+    //var sql2= "DELETE FROM Games WHERE Game_Name= 'Rocket League'";
     var inserts = [req.body.name, req.body.mainteam, req.body.year];
-    sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+    //var inserts = [req.body.mainteam,req.body.year, req.body.name];
+    sql = mysql.pool.query(sql2,inserts,function(error, results, fields){
       if(error){
           console.log(JSON.stringify(error))
           res.write(JSON.stringify(error));
           res.end();
       }else{
           console.log('Insert Task completed!')
+          // res.redirect('/');
+      }
+    });
+  }
+});
+
+app.post('/people/acceptDelete', function (req, res, next) {
+  if (req.body && req.body.name ) {
+  //  var collection = db.collection('players');
+    var player = {
+      name: req.body.name,
+      username: req.body.username,
+      mainteam: req.body.mainteam,
+      year: req.body.year,
+      game: req.body.game,
+      gameid: req.body.gameid,
+      playerId: req.body.playerId
+    };
+    console.log('inside new routerpost BEFORE CHANGE')
+    console.log(req.body.name)
+    console.log(req.body.mainteam)
+    console.log(req.body.username)
+    console.log(req.body)
+    console.log('all together')
+    console.log(player);
+    // var Game_Name = req.body.name;
+    // var Main_Team = req.body.mainteam;
+    // var Release_Date = req.body.year;
+    // var mysql = req.app.get('mysql');
+//    var sql = "DELETE FROM GAMES WHERE Game_Name= ?;";
+   var sql = "DELETE FROM Games WHERE Game_Name= ? ";
+    var inserts = [req.body.name];
+    sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+      if(error){
+          console.log(JSON.stringify(error))
+          res.write(JSON.stringify(error));
+          res.end();
+      }else{
+          console.log('DELETE Task completed!')
+          // res.redirect('/');
+      }
+    });
+  };
+});
+
+app.post('/people/acceptUpdate', function (req, res, next) {
+  if (req.body && req.body.name && req.body.username && req.body.mainteam && req.body.year && req.body.game && req.body.gameid && req.body.playerId) {
+  //  var collection = db.collection('players');
+    var player = {
+      name: req.body.name,
+      username: req.body.username,
+      mainteam: req.body.mainteam,
+      year: req.body.year,
+      game: req.body.game,
+      gameid: req.body.gameid,
+      playerId: req.body.playerId
+    };
+    console.log('inside new routerpost BEFORE CHANGE')
+    console.log(req.body.name)
+    console.log(req.body.mainteam)
+    console.log(req.body.username)
+    console.log(req.body)
+    console.log('all together')
+    console.log(player);
+    // var Game_Name = req.body.name;
+    // var Main_Team = req.body.mainteam;
+    // var Release_Date = req.body.year;
+    // var mysql = req.app.get('mysql');
+    //var sql = "INSERT INTO Games (Game_Name, Main_Team, Release_Date) VALUES (?,?,?)";
+    var sql2="UPDATE Games SET Main_Team=?, Release_Date=? WHERE Game_Name=? ";
+    var inserts = [req.body.mainteam, req.body.year,req.body.name];
+    sql = mysql.pool.query(sql2,inserts,function(error, results, fields){
+      if(error){
+          console.log(JSON.stringify(error))
+          res.write(JSON.stringify(error));
+          res.end();
+      }else{
+          console.log('UPDATE Task completed!')
           // res.redirect('/');
       }
     });
