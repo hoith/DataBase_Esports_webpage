@@ -155,7 +155,7 @@ app.post('/join/addMember', function (req, res, next) {
     //var sql2= "DELETE FROM Games WHERE Game_Name= 'Rocket League'";
     var inserts = [req.body.name, req.body.mainteam, req.body.year];
     //var inserts = [req.body.mainteam,req.body.year, req.body.name];
-    sql = mysql.pool.query(sql2,inserts,function(error, results, fields){
+    sql = mysql.pool.query(sql,inserts,function(error, results, fields){
       if(error){
           console.log(JSON.stringify(error))
           res.write(JSON.stringify(error));
