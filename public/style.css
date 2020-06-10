@@ -179,13 +179,6 @@ footer{
   color: #333;
 }
 
-.peopleContainer{
-  display: flex;
-  align-items:  center;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  height: 100%;
-}
 
 h1.page-title{
   text-align: ;
@@ -402,14 +395,25 @@ button:hover{
   justify-content: space-around;
 }
 #Games{
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #d73f09;
   border: solid #fff;
+  margin-top: 0px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  margin-left: 20px;
   min-width: 30%;
   max-width: 100%;
   color: #fff;
+}
+.tableHeader{
+  text-align: center;
+  position: relative;
+  color: #fff;
+  margin: 3px;
 }
 .hidden{
   display: none;
@@ -608,18 +612,39 @@ button:hover{
     color: white;
     border: solid #d73f09;
 }
-.peopleTable{
+/* .peopleTable{
   background-color: #d73f09;
   border: solid black;
-  width: 500px;
-}
+  width: 250px;
+  height: auto;
+} */
 .table-row{
   width: 60px;
   height: auto;
-  padding: 10px;
+  padding: 0px;
   border: solid #fff;
   margin: 0px;
-
-
-
+}
+.peopleContainer{
+  /* position:  relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100%;
+  height: auto;
+  min-width: 500px;
+}
+.PeopleTableContainer{
+  /* position: absolute; */
+  display: flex;
+  justify-content: center;
+  min-height: 500px;
+  min-width: 100%;
+}
+.peopleTable{
+  align-self: center;
+}
+#peoplebutton{
+  height: auto;
 }

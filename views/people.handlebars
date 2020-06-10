@@ -3,14 +3,73 @@
 </div> -->
 <main class="peopleContainer">
   <p class="page-title">{{title}}</p>
-  <div>
+  <div id="peoplebutton">
     <button id="update-button" class="people-table-button" onclick="HandleUpdateButton(this.id)">Update</button>
     <button id="delete-button" class="people-table-button" onclick="HandleDeleteButton(this.id)">Delete</button>
   </div>
+  
   {{#each players}}
     {{>peopleCard}}
   {{/each}}
-  <div class="peopleTable">
+  <div class="PeopleTableContainer">
+    <!-- Table 1 -->
+    <div>
+      <h4 class="tableHeader">Table 1</h4>
+
+      <table id = 'Games' class="peopleTable">
+        <tr>
+            <th>Game_Name</th>
+            <th>Main_Team</th>
+            <th>Release_Date</th>
+        </tr>
+        {{#each data}}
+        <tr class="table-row">
+          <td class="table-object">{{this.Game_Name}}</td>
+          <td class="table-object">{{this.Main_Team}}</td>
+          <td class="table-object">{{this.Release_Date}}</td>
+        </tr>
+        {{/each}}
+      </table>
+    <!-- Table 2 -->
+    <h4 class="tableHeader">Table 2</h4>
+
+    <table id = 'Games' class="peopleTable">
+      <tr>
+          <th>Game_Name</th>
+          <th>Main_Team</th>
+          <th>Release_Date</th>
+        </tr>
+        {{#each data}}
+        <tr class="table-row">
+          <td class="table-object">{{this.Game_Name}}</td>
+          <td class="table-object">{{this.Main_Team}}</td>
+          <td class="table-object">{{this.Release_Date}}</td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+    <!-- Table 3 -->
+
+    <div>
+      <h4 class="tableHeader">Table 3</h4>
+
+    <table id = 'Games' class="peopleTable">
+      <tr>
+        <th>Game_Name</th>
+        <th>Main_Team</th>
+        <th>Release_Date</th>
+      </tr>
+      {{#each data}}
+      <tr class="table-row">
+        <td class="table-object">{{this.Game_Name}}</td>
+        <td class="table-object">{{this.Main_Team}}</td>
+        <td class="table-object">{{this.Release_Date}}</td>
+      </tr>
+      {{/each}}
+    </table>
+  <!-- Table 4 -->
+  <h4 class="tableHeader">Table 4</h4>
+
   <table id = 'Games' class="peopleTable">
       <tr>
           <th>Game_Name</th>
@@ -24,7 +83,8 @@
         <td class="table-object">{{this.Release_Date}}</td>
       </tr>
       {{/each}}
-  </table>
+    </table>
+  </div>
 </div>
   <!-- Delete popup -->
     <div id="container-backdrop" class="hidden"></div>
@@ -44,7 +104,6 @@
         </div>
         </div>
       </div>
-
         <!-- Update Popup -->
   <div id="update-container" class ="hidden">
     <div class="update-dialog">
