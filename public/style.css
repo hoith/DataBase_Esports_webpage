@@ -648,3 +648,40 @@ button:hover{
 #peoplebutton{
   height: auto;
 }
+.search {
+  float: right;
+  margin-right: 20px;
+  padding: 0;
+  line-height: 38px;
+}
+
+#search-input {
+  padding: 4px;
+  font-size: 16px;
+  background-color: #eee;
+  border: 1px solid #dadada;
+  border-radius: 2px;
+}
+
+#search-input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+#search-button {
+  margin-left: -5px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  color: #343434;
+  cursor: pointer;
+}
+
+#search-button:hover {
+  color: #319df6;
+}
+
+#search-button:focus {
+  color: #319df6;
+  outline: none;
+}

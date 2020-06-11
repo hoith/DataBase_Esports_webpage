@@ -1,17 +1,148 @@
 <h1 class="page-title">Teams</h1>
-  <section class="teamRoster" >
-    <div class="teamRoster-teamstuff"></div>
-      <img src="http://www.stickpng.com/assets/images/586273b931349e0568ad89df.png" height="50" width="50" alt="Overwatch" class="TeamRoster-logo img-responsive">
-    <div class="teamRoster-infoWrapper">
-      <div class="teamRoster-info">
-      </div>
-      <h2>  <div class="teamRoster-name">OSU Overwatch</div></h2>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
 
-    <div class="teamRoster-playerList">
-        {{#each rosterPlayer}}
-          {{>teamPlayer}}
+<main class="peopleContainer">
+  <p class="page-title">{{title}}</p>
+  <div id="peoplebutton">
+    <button id="update-button" class="people-table-button" onclick="HandleUpdateButton(this.id)">Update</button>
+    <button id="delete-button" class="people-table-button" onclick="HandleDeleteButton(this.id)">Delete</button>
+  </div>
+
+
+  {{#each players}}
+    {{>peopleCard}}
+  {{/each}}
+  <div class="PeopleTableContainer">
+    <!-- Table 1 -->
+    <div>
+      <h4 class="tableHeader">Table 1</h4>
+
+      <table id = 'Games' class="peopleTable">
+        <tr>
+            <th>Game_Name</th>
+            <th>Main_Team</th>
+            <th>Release_Date</th>
+        </tr>
+        {{#each data}}
+        <tr class="table-row">
+          <td class="table-object">{{this.Game_Name}}</td>
+          <td class="table-object">{{this.Main_Team}}</td>
+          <td class="table-object">{{this.Release_Date}}</td>
+        </tr>
         {{/each}}
+      </table>
+    <!-- Table 2 -->
+    <h4 class="tableHeader">Table 2</h4>
+
+    <table id = 'Games' class="peopleTable">
+      <tr>
+          <th>Game_Name</th>
+          <th>Main_Team</th>
+          <th>Release_Date</th>
+        </tr>
+        {{#each data}}
+        <tr class="table-row">
+          <td class="table-object">{{this.Game_Name}}</td>
+          <td class="table-object">{{this.Main_Team}}</td>
+          <td class="table-object">{{this.Release_Date}}</td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+    <!-- Table 3 -->
+
+    <div>
+      <h4 class="tableHeader">Table 3</h4>
+
+    <table id = 'Games' class="peopleTable">
+      <tr>
+        <th>Game_Name</th>
+        <th>Main_Team</th>
+        <th>Release_Date</th>
+      </tr>
+      {{#each data}}
+      <tr class="table-row">
+        <td class="table-object">{{this.Game_Name}}</td>
+        <td class="table-object">{{this.Main_Team}}</td>
+        <td class="table-object">{{this.Release_Date}}</td>
+      </tr>
+      {{/each}}
+    </table>
+  <!-- Table 4 -->
+  <h4 class="tableHeader">Table 4</h4>
+
+  <table id = 'Games' class="peopleTable">
+      <tr>
+          <th>Game_Name</th>
+          <th>Main_Team</th>
+          <th>Release_Date</th>
+      </tr>
+      {{#each data}}
+      <tr class="table-row">
+        <td class="table-object">{{this.Game_Name}}</td>
+        <td class="table-object">{{this.Main_Team}}</td>
+        <td class="table-object">{{this.Release_Date}}</td>
+      </tr>
+      {{/each}}
+    </table>
+  </div>
+</div>
+  <!-- Delete popup -->
+    <div id="container-backdrop" class="hidden"></div>
+    <div id="delete-container" class ="hidden">
+      <div class="update-dialog">
+        <div class="update-header">
+          <h3>Which game would you like to delete?</h3>
+          <div class="delete-input-element">
+            <label for="delete-name-input">Game_Name:</label>
+            <textarea id="delete-name-input"></textarea>
+          </div
+        </div>
+        </div>
+        <div class="update-footer">
+          <button type="button" class="update-cancel-button" onclick="clearUpdateRequest(this.id)">Cancel</button>
+          <button type="button" class="update-accept-button" onclick="acceptDelete(this.id)">Accept</button>
+        </div>
         </div>
       </div>
-      </main>
-    </section>
+        <!-- Update Popup -->
+  <div id="update-container" class ="hidden">
+    <div class="update-dialog">
+
+      <div class="update-header">
+        <h3>Update your information</h3>
+      </div>
+
+      <div class="update-body">
+        <div class="update-input-element">
+          <label for="update-name-input">Game_Name:</label>
+          <textarea id="update-name-input"></textarea>
+        </div>
+          <div class="update-input-element">
+            <label for="update-email-input">Main_Team:</label>
+            <textarea id="update-email-input"></textarea>
+          </div>
+        <div class="update-input-element">
+          <label for="update-year-input">Year:</label>
+          <textarea id="update-year-input"></textarea>
+        </div>
+        <div class="update-input-element">
+          <label for="update-game-input">Game:</label>
+          <div class="game_response"><input  type="checkbox" data-text="LoL" value="League of Legends" autocomplete="off"><label>LoL</label></div>
+          <div class="game_response"><input  type="checkbox" data-text="Overwatch" value="Overwatch" autocomplete="off"><label>Overwatch</label></div>
+          <div class="game_response"><input  type="checkbox" data-text="CS:GO" value="CS:GO" autocomplete="off"><label>CS:GO</label></div>
+          <div class="game_response"><input  type="checkbox" data-text="Rocket League" value="Rocket League" autocomplete="off"><label>Rocket League</label></div>
+        </div>
+        <div class="update-input-element">
+          <label for="update-username-input">Discord iD:</label>
+          <textarea id="update-username-input"></textarea>
+        </div>
+        <h5> Make sure to include #number in Discord iD</h5>
+      </div>
+
+      <div class="update-footer">
+        <button type="button" class="update-cancel-button" onclick="clearUpdateRequest(this.id)">Cancel</button>
+        <button type="button" class="update-accept-button" onclick="acceptUpdate(this.id)">Accept</button>
+      </div>
+
+</main>

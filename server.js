@@ -89,25 +89,8 @@ app.get('/people', function(req, res){
 });
 
 app.get('/players/:team', function(req, res, next){
-// var team = req.params.team.toLowerCase();
-//  //var collection = db.collection('players');
-//  collection.find({gameid: team}).toArray(function (err, team) {
-//   if (err) {
-//     res.status(500).send({
-//       error: "Error fetching people from DB"
-//     });
-//   } else if(team.length < 1){
-//     res.status(200).render('people', {
-//       players: team,
-//       title: "No players for this team yet... Sign up on the Join page!"
-//     });
-//   } else {
-//     res.status(200).render('people', {
-//       players: team,
-//       title: team[0].game
-//     });
-//   }
-// });
+
+// res.status(200).render('people');
 });
 
 // router.post('/', function(req, res){
@@ -270,8 +253,18 @@ app.get('/about', function(req, res){
 });
 
 app.get('/teams', function(req, res){
+  var context = {};
+  context.data = {};
+  mysql.pool.query("SELECT Game_Name,Main_Team,Release_Date FROM Games",  function(err, rows, fields){
+      if(err){
+        next(err);
+        return;
+      }
+      context.data = rows;
+      res.render('teams', context);
+  });
   //var collection = db.collection('roster');
-  res.status(200).render('teams');
+  // res.status(200).render('teams');
 });
 
 app.get('*', function (req, res) {

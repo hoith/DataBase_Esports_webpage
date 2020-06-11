@@ -1,13 +1,19 @@
 <!-- <div class="resetPageBtnContainer">
   <button class="resetPageBtn" type="button" name="resetPage">Reset Page</button>
 </div> -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+
 <main class="peopleContainer">
   <p class="page-title">{{title}}</p>
   <div id="peoplebutton">
     <button id="update-button" class="people-table-button" onclick="HandleUpdateButton(this.id)">Update</button>
     <button id="delete-button" class="people-table-button" onclick="HandleDeleteButton(this.id)">Delete</button>
   </div>
-  
+  <div class="search">
+    <input type="text" id="search-input" placeholder="Search...">
+    <button type="button" id="search-button"><i class="fas fa-search"></i></button>
+  </div>
+
   {{#each players}}
     {{>peopleCard}}
   {{/each}}
